@@ -9,6 +9,7 @@ test('ReverseInt handles 0 as an input', () => {
 });
 
 test('ReverseInt flips a positive number', () => {
+  expect(reverseInt(0)).toEqual(0);
   expect(reverseInt(5)).toEqual(5);
   expect(reverseInt(15)).toEqual(51);
   expect(reverseInt(90)).toEqual(9);
