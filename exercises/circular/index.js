@@ -12,6 +12,18 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+function circular(list) {
+
+  let first = list.getFirst();
+  let current = first;
+  while (current.next) {
+    // End points to first    // The next node points to the current
+    if (current.next === first || current.next.next === current) {
+      return true;
+    }
+    current = current.next;
+  }
+  return false;
+}
 
 module.exports = circular;
