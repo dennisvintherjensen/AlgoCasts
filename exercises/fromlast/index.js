@@ -11,6 +11,39 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+  // 1 - Possible fewer iterations but has an added variable that keeps counting
+  // let nBehind = list.getFirst();
+  // let lookAhead = list.getFirst();
+  // let lookAheadIndex = 0;
+  // while (lookAhead && lookAhead.next) {
+  //   if (n >= n) {
+  //     // If lookAheadIndex has reached or gone above n
+  //     // then have nBehind start forwarding.
+  //     // When lookAhead reaches the end of the list
+  //     // nBehind will be n behind - matching
+  //     // the requested node.
+  //     nBehind = nBehind.next;
+  //   }
+  //   lookAheadIndex++;
+  //   lookAhead = lookAhead.next;
+  // }
+  // return nBehind;
+
+  // 2 - Possible more iterations, but no extra variable - 1 "feels" better
+  let nBehind = list.getFirst();
+  let lookAhead = list.getFirst();
+  // Move look ahead n forward
+  while (n > 0) {
+    lookAhead = lookAhead.next;
+    n--;
+  }
+  // And then move both forward at same pace
+  while (lookAhead.next) {
+    lookAhead = lookAhead.next;
+    nBehind = nBehind.next;
+  }
+  return nBehind;
+}
 
 module.exports = fromLast;

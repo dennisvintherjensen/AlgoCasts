@@ -15,16 +15,8 @@
 function circular(list) {
 
   let slow = list.getFirst();
-  if (!slow) {
-    // list is empty and can thereby not be circular
-    return false;
-  }
   let fast = list.getFirst();
-  while (slow) {
-    if (!fast.next || !fast.next.next) {
-      // the list has an end and thereby can not be circular
-      return false;
-    }
+  while (fast && fast.next && fast.next.next) {
     // By moving slow forward 1 at a time and fast 2 at a time
     // the two will at some stage reference the same node if
     // the list is circular.
@@ -34,7 +26,8 @@ function circular(list) {
       return true;
     }
   }
-
+  // the list has an end and thereby can not be circular
+  return false;
 }
 
 module.exports = circular;
