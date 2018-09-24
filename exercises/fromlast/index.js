@@ -20,9 +20,6 @@ function fromLast(list, n) {
   //   if (n >= n) {
   //     // If lookAheadIndex has reached or gone above n
   //     // then have nBehind start forwarding.
-  //     // When lookAhead reaches the end of the list
-  //     // nBehind will be n behind - matching
-  //     // the requested node.
   //     nBehind = nBehind.next;
   //   }
   //   lookAheadIndex++;
